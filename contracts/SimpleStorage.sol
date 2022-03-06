@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
-// solhint-disable-next-line
 pragma solidity ^0.6.0;
 
-contract SimpeStorage{
+contract SimpleStorage{
     //type of data in solidity
     uint256  favoriteNumber;
     bool favoriteBool;
@@ -24,7 +23,7 @@ contract SimpeStorage{
         favoriteNumber=_favoriteNumber;
     }
     //view functions don't make changes they just retrun the given data
-    function retrive() public view returns(uint256){
+    function retrieve() public view returns(uint256){
         return favoriteNumber;
     }
     //function that stores data only in memory so that when the contract stops it gets deleted its the opposite of storage
