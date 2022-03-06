@@ -1,14 +1,33 @@
+
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.6.0;
 
 contract SimpeStorage{
 
-    uint256 public favoriteNumber;
+    uint256  favoriteNumber;
+    
+    struct People {
+        uint256 favoriteNumber;
+        string name;
+    }
+    
+    People public person =People({favoriteNumber:5, name: "Iljas"});
+    
+    People [] public people;
 
+    mapping(string=>uint256)public nameToFavoriteNumber;
+
+    
     function store (uint256 _favoriteNumber)public{
         favoriteNumber=_favoriteNumber;
     }
 
     function retrive() public view returns(uint256){
         return favoriteNumber;
+    }
+    function addPerson(string memory _name, uint256 _favoriteNumber) public{
+        people.push(People({favoriteNumber:_favoriteNumber,name: _name}));
+        nameToFavoriteNumber[_name]=_favoriteNumber;
     }
 }
